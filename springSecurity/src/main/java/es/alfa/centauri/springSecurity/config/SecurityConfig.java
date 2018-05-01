@@ -32,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll();
 		http.exceptionHandling().accessDeniedPage("/403");
 	}
+	//https://www.harinathk.com/spring/no-passwordencoder-mapped-id-null/
 	@SuppressWarnings("deprecation")
 	@Bean
 	public static NoOpPasswordEncoder passwordEncoder() {
