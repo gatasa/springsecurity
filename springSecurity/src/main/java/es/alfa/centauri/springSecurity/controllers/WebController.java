@@ -1,32 +1,32 @@
 package es.alfa.centauri.springSecurity.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WebController {
    
-    @RequestMapping(value="/")
+	@GetMapping("/")
     public String home(){
         return "home";
     }
    
-    @RequestMapping(value="/user")
+    @GetMapping("/user")
     public String user(){
-        return "user";
+		return "user";
     }
   
-    @RequestMapping(value="/admin")
+    @GetMapping("/admin")
     public String admin(){
         return "admin";
     }
    
-    @RequestMapping(value="/login")
+    @GetMapping("/login")
     public String login(){
         return "login";
     }
    
-    @RequestMapping(value="/403")
+    @GetMapping("/403")
     public String Error403(){
         return "403";
     }

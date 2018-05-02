@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableAutoConfiguration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -27,13 +28,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/home").permitAll().antMatchers("/admin").hasRole("ADMIN")
-				.anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
-				.permitAll();
+		http.authorizeRequests().antMatchers("/", "/home", "/api/**").permitAll()
+								.antMatchers("/admin").hasRole("ADMIN").anyRequest().authenticated()
+								.and()
+								.formLogin().loginPage("/login").permitAll()
+								.and()
+								.logout().permitAll();
 		http.exceptionHandling().accessDeniedPage("/403");
 	}
 	//https://www.harinathk.com/spring/no-passwordencoder-mapped-id-null/
-	@SuppressWarnings("deprecation")
 	@Bean
 	public static NoOpPasswordEncoder passwordEncoder() {
 	return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
