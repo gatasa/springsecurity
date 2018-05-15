@@ -31,7 +31,7 @@ public class UserController {
 		return userRepository.findByName(name);
 	}
 
-	@PostMapping
+	@PostMapping("")
 	public User addUser(@RequestBody User user) {
 		return userRepository.insert(user);
 	}
