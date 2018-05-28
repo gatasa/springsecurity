@@ -1,6 +1,4 @@
-INSERT INTO users(username,password,enabled) VALUES ('jack','jack', true);
-INSERT INTO users(username,password,enabled) VALUES ('peter','peter', true);
- 
-INSERT INTO user_roles (username, role) VALUES ('jack', 'ROLE_USER');
-INSERT INTO user_roles (username, role) VALUES ('jack', 'ROLE_ADMIN');
-INSERT INTO user_roles (username, role) VALUES ('peter', 'ROLE_USER');
+INSERT INTO public.users(userid,username,email,password,enabled)VALUES (1,'jack','abc@abc.com','jack', 1);
+INSERT INTO public.user_roles (user_role_id,userid, role)VALUES (1,1, 'ROLE_USER');
+INSERT INTO public.users(userid,username,email,password,enabled)VALUES (2,'peter','abc@abc.com','peter', 1);
+INSERT INTO public.user_roles (user_role_id,userid, role)VALUES (2,2, 'ROLE_USER');

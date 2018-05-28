@@ -1,9 +1,15 @@
 package es.alfa.centauri.springSecurity.model;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends MongoRepository<User, String> {
-	public User findByName(String name);
+public interface UserRepository extends JpaRepository<User, String> {
 
-	public void deleteByName(String name);
+	public void deleteByUserName(String name);
+
+//	public User insert(User user);
+	
+	 User findByEmail(String email);
+	 
+	 public User findByUserName(String username);
+
 }
