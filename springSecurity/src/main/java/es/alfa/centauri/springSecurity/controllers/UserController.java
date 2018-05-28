@@ -33,10 +33,10 @@ public class UserController {
 		return userRepository.findByUserName(name);
 	}
 
-//	@PostMapping("")
-//	public User addUser(@RequestBody User user) {
-//		return userRepository.insert(user);
-//	}
+	@PostMapping("")
+	public User addUser(@RequestBody User user) {
+		return userRepository.save(user);
+	}
 
 	@DeleteMapping("/{name}")
 	public void addUser(@PathVariable String name) {
